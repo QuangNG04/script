@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<style>
+   #image { width: 400px; height: 300px; object-fit: cover; }
+  .preview { width: 100px; height: 75px; margin: 5px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<img id="image" src="" alt="Ảnh hiển thị">
+
+<div>
+  <img class="preview" src="https://picsum.photos/id/1015/400/300" alt="Ảnh 1">
+  <img class="preview" src="https://picsum.photos/id/1016/400/300" alt="Ảnh 2">
+  <img class="preview" src="https://picsum.photos/id/1019/400/300" alt="Ảnh 3">
+  <img class="preview" src="https://picsum.photos/id/1020/400/300" alt="Ảnh 4">
+  <img class="preview" src="https://picsum.photos/id/1024/400/300" alt="Ảnh 5">
+  <img class="preview" src="https://picsum.photos/id/1025/400/300" alt="Ảnh 6">
+</div>
+
+<script>
+function upDate(previewPic) {
+  console.log("Sự kiện kích hoạt: Di chuyển vào/Focus ảnh");
+  document.getElementById('image').src = previewPic.src;
+}
+
+function unDo() {
+  console.log("Sự kiện kích hoạt: Rời khỏi/Blur ảnh");
+  document.getElementById('image').src = "";
+}
+
+window.onload = function() {
+  console.log("Trang đã tải xong (onload)");
+  const images = document.querySelectorAll('.preview');
+  
+  for (let i = 0; i < images.length; i++) {
+    console.log("Đang xử lý ảnh thứ: " + i);
+    images[i].setAttribute('tabindex', '0');
+    
+    images[i].addEventListener('mouseover', function() {
+      upDate(this);
+    });
+    images[i].addEventListener('mouseleave', function() {
+      unDo();
+    });
+    images[i].addEventListener('focus', function() {
+      upDate(this);
+    });
+    images[i].addEventListener('blur', function() {
+      unDo();
+    });
+  }
+};
+</script>
+
+</body>
+</html>
