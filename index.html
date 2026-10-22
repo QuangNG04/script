@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài tập Gallery Hình Ảnh</title>
+  <style>
+    #image {
+      width: 500px;
+      height: 300px;
+      border: 2px solid #333;
+      margin-bottom: 20px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+    .preview {
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="image">Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.</div>
+
+  <img class="preview" 
+       src="https://picsum.photos/id/1015/500/300" 
+       alt="Cảnh núi non hùng vĩ" 
+       onmouseover="upDate(this)" 
+       onmouseout="unDo()">
+
+  <img class="preview" 
+       src="https://picsum.photos/id/1018/500/300" 
+       alt="Cảnh thiên nhiên hoang dã" 
+       onmouseover="upDate(this)" 
+       onmouseout="unDo()">
+
+  <img class="preview" 
+       src="https://picsum.photos/id/1025/500/300" 
+       alt="Chú chó dễ thương" 
+       onmouseover="upDate(this)" 
+       onmouseout="unDo()">
+
+  <script src="script.js"></script>
+</body>
+</html>
